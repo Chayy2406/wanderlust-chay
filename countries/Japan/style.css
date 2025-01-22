@@ -1,0 +1,541 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 300px !important;
+}
+
+body {
+    font-family: "Anton", sans-serif;
+}
+
+.logo {
+    width: 100px;
+}
+
+header {
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    padding: 0.9rem 0;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(119, 27, 27, 0.1); /* Optional: adds slight transparency */
+    backdrop-filter: blur(2px); /* Optional: adds blur effect */
+}
+
+header nav {
+    background-color: transparent;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+header ul a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 1.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.83rem;
+}
+
+.search a {
+    font-size: 1.05rem;
+    padding: 0 3rem;
+}
+
+.hamburger {
+    padding-left: 1.5rem;
+}
+.hamburger a {
+    padding: 0;
+    width: 37px;
+    height: 37px;
+    display: flex;
+    border-radius: 50%;
+    background-color: rgba(115, 115, 115, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger .bar {
+    position: relative;
+    width: 52%;
+    height: 1.3px;
+    background-color: #fff;
+    border-radius: 2px;
+}
+
+.hamburger .bar::before,
+.hamburger .bar::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 2px;
+}
+
+.hamburger .bar::before {
+    top: -4.5px;
+}
+
+.hamburger .bar::after {
+    top: 4.5px;
+}
+
+main {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+ .parallax {
+    pointer-events: none;
+    transition: 0.45s cubic-bezier(.2, .49, .32, .99);
+    will-change: transform;
+}
+
+.parallax-container {
+    position: relative;
+    position: fixed;
+    height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+
+.bg-img {
+    position: absolute;
+    height: 1200px;
+    width: 1870px;
+    top: calc(50% - 40px);
+    left: calc(50% + 0px);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+html {
+    height: 300vh; /* This allows scrolling while main is fixed */
+    scroll-behavior: smooth;
+}
+
+.fog-7 {
+    position: absolute;
+    z-index: 2;
+    width: 1900px;
+    top: calc(50% - 100px);
+    left: calc(50% + 300px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-10 {
+    position: absolute;
+    z-index: 3;
+    width: 392px;
+    top: calc(50% + 69px);
+    left: calc(50% + 230px);
+    transform: translate(-50%, -50%);
+}
+
+.fog-6 {
+    position: absolute;
+    z-index: 4;
+    width: 1610px;
+    top: calc(50% + 85px);
+    left: calc(50% + 10px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-9 {
+    position: absolute;
+    z-index: 5;
+    width: 470px;
+    top: calc(50% + 113px);
+    left: calc(50% - 457px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-8 {
+    position: absolute;
+    z-index: 6;
+    width: 510px;
+    top: calc(50% - 186px);
+    left: calc(50% - 452px);
+    transform: translate(-50%, -50%);
+}
+
+.fog-5 {
+    position: absolute;
+    z-index: 7;
+    width: 450px;
+    top: calc(50% + 160px);
+    left: calc(50% + 20px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-7 {
+    position: absolute;
+    z-index: 21;
+    width: 400px;
+    top: calc(50% + 310px);
+    left: calc(50% - 70px);
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    position: absolute;
+    z-index: 20;
+    top: calc(50% - 130px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    width: auto;
+    pointer-events: all;
+    
+}
+
+
+
+
+
+.text h2 {
+    font-weight: 100;
+    font-size: 6.5rem;
+    line-height: 0.88;
+}
+
+.text h1 {
+    font-weight: 800;
+    font-size: 8rem;
+    line-height: 0.88;
+    /* -webkit-box-reflect: below 10px linear-gradient(transparent, rgba(0, 0, 0, 0.5)); */
+
+}
+
+/* ::selection {
+    background-color: #0b372dbb;
+} */
+
+
+
+.mountain-6 {
+    position: absolute;
+    z-index: 22;
+    top: calc(50% + 274px);
+    left: calc(50% - 450px);
+    transform: translate(-50%, -50%);
+    width: 550px;
+}
+
+
+.fog-4 {
+    position: absolute;
+    z-index: 11;
+    top: calc(50% + 223px);
+    left: calc(50% - 60px);
+    width: 590px;
+}
+.mountain-5 {
+    position: absolute;
+    z-index: 17;
+    top: calc(50% + 390px);
+    left: calc(50% + 500px);
+    transform: translate(-50%, -50%);
+    width: 1070px;
+    /* height: 500px; */
+}
+
+
+.fog-3 {
+    position: absolute;
+    z-index: 13;
+    top: calc(50% + 110px);
+    left: calc(50% - 15px);
+    transform: translate(-50%, -50%);
+    width: 1600px;
+}
+
+.mountain-4 {
+    position: absolute;
+    z-index: 5;
+    top: calc(50% - 194px);
+    left: calc(50% - 400px);
+    transform: translate(-50%, -50%);
+    width: 750px;
+}
+
+
+.mountain-3 {
+    position: absolute;
+    z-index: 15;
+    width: 1400px;
+    top: calc(50% + 50px);
+    left: calc(50% + 0px);
+    transform: translate(-50%, -50%);
+}
+
+.fog-2 {
+    position: absolute;
+    z-index: 16;
+    width: 1560px;
+    top: calc(50% + 147px);
+    left: calc(50% - 30px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-2 {
+    position: absolute;
+    z-index: 15;
+    width: 1000px;
+    top: calc(50% + 250px);
+    left: calc(50% + 0px);
+    transform: translate(-50%, -50%);
+}
+
+.mountain-1 {
+    position: absolute;
+    z-index: 18;
+    width: 1250px;
+    top: calc(50% + 320px);
+    left: calc(50% - 501px);
+    transform: translate(-50%, -50%);
+}
+
+.sun-rays {
+    position: absolute;
+    z-index: 19;
+    width: 595px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.black-shadow {
+    position: absolute;
+    z-index: 20;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+}
+
+.fog-1 {
+    position: absolute;
+    z-index: 21;
+    width: 1600px;
+    top: calc(100% - 355px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vignette {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    margin-top: 50px;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(255, 142, 142);
+    transition: 1s;
+}
+
+button:hover {
+    transition: 1s;
+    background-color: #f3a2efea;
+    width: 500px;
+    height: 50px;
+    color: #fff;
+    box-shadow: 0 0 95px rgb(71, 156, 166); 
+
+}
+
+.about-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 500; /* Lower z-index than text and button */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 2rem;
+    pointer-events: none; /* Prevent interference with button */
+}
+
+.about-section h2 {
+    font-family: "Anton", sans-serif;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.about-section p {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    max-width: 800px;
+    line-height: 1.8;
+    margin: 0 auto;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10000;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Optional: Add transition for content */
+main {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: fadeIn 0.5s ease 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+html, body {
+    background-color: black;
+}
+
+.preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 99999;
+    transition: opacity 0.5s ease;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10000;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+main {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: fadeIn 0.5s ease 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Add to your style.css */
+html, body {
+    background-color: black;
+}
+
+.preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 99999;
+    transition: opacity 0.5s ease;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10000;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+main {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: fadeIn 0.5s ease 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

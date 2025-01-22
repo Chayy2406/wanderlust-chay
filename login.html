@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Wanderlust</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-video {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-container img {
+            width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-group input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember-forgot input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .remember-forgot a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(45deg, #ff8e53, #ff6b6b);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: #ff8e53;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .signup-link a:hover {
+            color: #ff6b6b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .home-btn img {
+            width: 100px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .home-btn img:hover {
+            transform: scale(1.1);
+        }
+        .preload {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 99999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.hero {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.hero.loaded {
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <div class="preload"></div>
+
+
+    <!-- Change this -->
+<a href="index.html" class="home-btn">
+    <img src="img/newlogo.png" alt="Wanderlust" class="logo-image">
+</a>
+
+    <section class="hero">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="bgvideo.mp4" type="video/mp4">
+        </video>
+
+        <div class="login-container">
+            <div class="logo-container">
+                <img src="img/newlogo.png" alt="Wanderlust">
+            </div>
+            
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="signup-link">
+                Don't have an account? <a href="#">Sign Up</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add transition effect when clicking logo to return home
+    
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.querySelector('.preload');
+    const hero = document.querySelector('.hero');
+    
+    // Wait for video to be loaded
+    const video = document.querySelector('.back-video');
+    
+    // Function to start transition
+    const startTransition = () => {
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            hero.classList.add('loaded');
+            
+            // Remove preloader after fade
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 500);
+    };
+
+    // If video is already loaded
+    if (video.readyState >= 3) {
+        startTransition();
+    } else {
+        // Wait for video to load
+        video.addEventListener('loadeddata', startTransition);
+        
+        // Fallback in case video takes too long
+        setTimeout(startTransition, 2000);
+    }
+});
+
+// Keep your existing home button transition code
+// Update your existing script
+document.querySelector('.home-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const hero = document.querySelector('.hero');
+    const preloader = document.querySelector('.preload');
+    
+    // Fade out current content
+    hero.style.opacity = '0';
+    preloader.style.display = 'block';
+    
+    setTimeout(() => {
+        preloader.style.opacity = '1';
+        
+        // Navigate after fade out
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500);
+    }, 10);
+});
+    </script>
+</body>
+</html>

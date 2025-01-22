@@ -1,0 +1,628 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust</title>
+    <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+        
+    <div class="page-loader"></div>
+
+    <header>
+        <nav>
+            <a href="../../index.html">
+                <img src="img/newlogo.png" alt="Travelo" class="logo">
+            </a>
+            <ul>
+                <li>
+                    <a href="login.html" class="login-link">Login</a>
+                </li>
+
+                <li>
+                    <a href="signup.html" class="signup-link">Sign Up</a>
+                </li>
+
+                <li class="search">
+                    <a href="#">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </li>
+
+                <li class="hamburger">
+                    <a href="#">
+                        <div class="bar"></div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </header>
+    <section class = "hero">
+        <video autoplay loop muted plays-inline class = "back-video">
+            <source src = "video.mp4">
+        </video>
+
+        <section class = "content">
+            <h1>Wanderlust</h1>
+            <h2>Where dreams meet destinations</h2>
+            <a href = "countries/France/index.html"> Explore </a>
+        </section>
+    </section>
+
+    <div class="sidebar-overlay"></div>
+    <div class="sidebar">
+        <button class="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#about">
+                    <i class="fas fa-info-circle"></i>
+                    About Us
+                </a>
+            </li>
+            <li>
+                <a href="#contact">
+                    <i class="fas fa-envelope"></i>
+                    Contact Us
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal-overlay">
+        <video autoplay loop muted plays-inline>
+            <source src="bglogin.mp4" type="video/mp4">
+        </video>
+        <div class="modal">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>About Us</h2>
+            <p>Welcome to Wanderlust, where every journey begins with a dream. We are passionate about transforming your travel aspirations into unforgettable experiences. Our mission is to connect wandering souls with the world's most captivating destinations.</p>
+            <p>Founded by avid travelers who understand the transformative power of exploration, Wanderlust has grown from a simple idea into a comprehensive platform for adventure seekers. We believe that every destination has a story to tell, and we're here to help you become part of that narrative.</p>
+            <p>Our team of experienced travel enthusiasts works tirelessly to curate the most authentic and immersive experiences across the globe. From the sun-kissed beaches of tropical paradises to the snow-capped peaks of majestic mountains, we're here to guide you every step of the way.</p>
+            <button class="back-btn">Back</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="contact-modal">
+        <video autoplay loop muted plays-inline>
+            <source src="bglogin.mp4" type="video/mp4">
+        </video>
+        <div class="modal">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: wanderlusttravels2406@gmail.com</p>
+                <p><i class="fas fa-phone"></i> Phone: 1-WAND-ERL-UST</p>
+            </div>
+            <button class="back-btn" onclick="window.location.reload()">Back</button>
+        </div>
+    </div>
+
+    <!-- <div class="modal-overlay">
+        <div class="modal">
+            
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>About Us</h2>
+            <p>Welcome to Wanderlust, where every journey begins with a dream. We are passionate about transforming your travel aspirations into unforgettable experiences. Our mission is to connect wandering souls with the world's most captivating destinations.</p>
+            <p>Founded by avid travelers who understand the transformative power of exploration, Wanderlust has grown from a simple idea into a comprehensive platform for adventure seekers. We believe that every destination has a story to tell, and we're here to help you become part of that narrative.</p>
+            <p>Our team of experienced travel enthusiasts works tirelessly to curate the most authentic and immersive experiences across the globe. From the sun-kissed beaches of tropical paradises to the snow-capped peaks of majestic mountains, we're here to guide you every step of the way.</p>
+            <p>At Wanderlust, we don't just plan trips – we craft journeys that leave lasting impressions. Our commitment to excellence, attention to detail, and passion for discovery sets us apart in the world of travel.</p>
+        </div>
+    </div> -->
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Create transition overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'zoom-transition';
+        document.body.appendChild(overlay);
+
+        // Get elements
+        const content = document.querySelector('.content');
+        const mainLink = document.querySelector('.content a');
+        const video = document.querySelector('.back-video');
+
+        // Handle main link click
+        mainLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = e.currentTarget.getAttribute('href');
+
+            // Step 1: Start zoom effect
+            content.classList.add('zoom-out');
+            
+            // Step 2: Fade out video
+            video.classList.add('fade-out');
+
+            // Step 3: Show black overlay
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+            }, 600);
+
+            // Step 4: Navigate to new page
+            setTimeout(() => {
+                window.location.href = href;
+            }, 1200);
+        });
+    });
+    document.querySelector('nav a:first-child').addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('href');
+        
+        // Show transition overlay
+        document.querySelector('.preload').style.opacity = '1';
+        
+        // Navigate after transition
+        setTimeout(() => {
+            window.location.href = href;
+        }, 500);
+    });
+
+    document.querySelector('.login-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    
+    // Create overlay if it doesn't exist
+    let overlay = document.querySelector('.zoom-transition');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'zoom-transition';
+        document.body.appendChild(overlay);
+    }
+    
+    // Fade out content and video
+    document.querySelector('.content').style.opacity = '0';
+    document.querySelector('.back-video').style.opacity = '0';
+    
+    // Show black overlay
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+    }, 300);
+    
+    // Navigate to login page
+    setTimeout(() => {
+        window.location.href = href;
+    }, 800);
+});
+
+// Sidebar functionality
+const hamburger = document.querySelector('.hamburger');
+const sidebar = document.querySelector('.sidebar');
+const sidebarOverlay = document.querySelector('.sidebar-overlay');
+const closeBtn = document.querySelector('.close-btn');
+
+// Open sidebar
+hamburger.addEventListener('click', (e) => {
+    e.preventDefault();
+    sidebar.classList.add('active');
+    sidebarOverlay.classList.add('active');
+    hamburger.classList.add('active');
+});
+
+// Close sidebar
+function closeSidebar() {
+    sidebar.classList.remove('active');
+    sidebarOverlay.classList.remove('active');
+    hamburger.classList.remove('active');
+}
+
+closeBtn.addEventListener('click', closeSidebar);
+sidebarOverlay.addEventListener('click', closeSidebar);
+
+// Handle sidebar menu clicks
+document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('href');
+        
+        // Add your transition code here for About and Contact pages
+        closeSidebar();
+        
+        // Example transition (customize as needed):
+        let overlay = document.querySelector('.zoom-transition');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'zoom-transition';
+            document.body.appendChild(overlay);
+        }
+        
+        document.querySelector('.content').style.opacity = '0';
+        document.querySelector('.back-video').style.opacity = '0';
+        
+        setTimeout(() => {
+            overlay.style.opacity = '1';
+            // Navigate to appropriate page
+            // setTimeout(() => {
+            //     window.location.href = href;
+            // }, 500);
+        }, 300);
+    });
+});
+const modalOverlay = document.querySelector('.modal-overlay');
+const modal = document.querySelector('.modal');
+const modalClose = document.querySelector('.modal-close');
+const mainContent = document.querySelector('.hero'); // Add this line
+
+function openModal(modalId) {
+    const modalOverlay = document.querySelector(modalId);
+    const modal = modalOverlay.querySelector('.modal');
+    modalOverlay.classList.add('active');
+    modal.classList.add('active');
+}
+
+function closeModal(modalId) {
+    const modalOverlay = document.querySelector(modalId);
+    const modal = modalOverlay.querySelector('.modal');
+    modalOverlay.classList.remove('active');
+    modal.classList.remove('active');
+}
+
+// Update the sidebar menu click handler
+document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('href');
+        
+        closeSidebar();
+
+        if (href === '#about') {
+            openModal('.modal-overlay:not(#contact-modal)');
+        } else if (href === '#contact') {
+            openModal('#contact-modal');
+        }
+    });
+});
+
+// Close modal when clicking close button or overlay
+modalClose.addEventListener('click', closeModal);
+
+modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+        closeModal();
+    }
+});
+
+document.querySelectorAll('.modal-close, .modal-overlay').forEach(element => {
+    element.addEventListener('click', (e) => {
+        if (e.target === element) {
+            const modalId = element.closest('.modal-overlay').id || '.modal-overlay:not(#contact-modal)';
+            closeModal(modalId.startsWith('#') ? modalId : '#' + modalId);
+        }
+    });
+});
+
+// Add this to your existing JavaScript
+document.querySelector('.back-btn').addEventListener('click', () => {
+    window.location.href = 'index.html';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loader = document.querySelector('.page-loader');
+    
+    // Wait for content to load
+    window.addEventListener('load', () => {
+        // Remove loader
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 100);
+    });
+});
+    </script>
+
+<style>
+    .zoom-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.content {
+    transition: opacity 0.5s ease;
+}
+
+.back-video {
+    transition: opacity 0.5s ease;
+}
+
+/* Add these styles to your existing styles */
+.sidebar {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 10001;
+    transition: right 0.3s ease;
+    padding: 80px 40px;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin: 20px 0;
+}
+
+.sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.sidebar-menu a i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.sidebar-menu a:hover {
+    color: #ff8e53;
+    transform: translateX(10px);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #ff8e53;
+    transform: rotate(90deg);
+}
+
+/* Hamburger button animation */
+.hamburger a {
+    position: relative;
+}
+
+.hamburger.active .bar {
+    background-color: transparent;
+}
+
+.hamburger.active .bar::before {
+    transform: translateX(-50%) rotate(45deg);
+    top: 0;
+}
+
+.hamburger.active .bar::after {
+    transform: translateX(-50%) rotate(-45deg);
+    top: 0;
+}
+
+/* Optional overlay for background */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10002;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Ensure video doesn't create scrollbars */
+}
+
+.modal-overlay video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 800px;
+    
+    z-index: 10003;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.modal p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.modal-close:hover {
+    color: #007bff;
+    transform: rotate(90deg);
+}
+
+.back-btn {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+
+.back-btn i {
+    font-size: 16px;
+}
+
+.modal p:last-of-type {
+    margin-bottom: 30px; /* Add space above button */
+}
+
+.back-btn {
+    display: block;
+    width: 150px;
+    padding: 12px 0;
+    margin: 425 300;
+    background: linear-gradient(45deg, #007bff, #00a2ff);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+/* Add to your style.css */
+body {
+    opacity: 0;
+    animation: fadeInPage 1s ease forwards;
+}
+
+@keyframes fadeInPage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.hero {
+    opacity: 0;
+    animation: fadeInContent 1s ease 0.5s forwards;
+}
+
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional preloader styles */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+</style>
+
+    
+
+</body>
+</html>
